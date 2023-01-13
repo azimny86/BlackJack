@@ -5,11 +5,14 @@ import random
 """
 cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
 
+
 """
-    Player and computer cards
+    Player and computer variables
 """
 compHand = []
 playerHand = []
+playerIn = True
+compIn = True
 
 
 def startGame(turn):
@@ -57,3 +60,24 @@ for _ in range(2):
 print(compHand)
 print(playerHand)
 
+
+while playerIn or compIn:
+    """
+    Display of cards and scores for player and computer with option to add card or stand
+    """
+    print(f"Delar had {reportDelaerCards()} and {scoring(compHand)}")
+    print(f"User have {playerHand} for total of {scoring(playerHand)}")
+    if playerIn:
+        standOrHit = input("1: Stand\n2: Hit\n")
+    if scoring(compHand) > 16:
+        compIn = False
+    else:
+        startGame(compHand)
+    if standOrHit == '1':
+        playerIn = False
+    else:
+        startGame(playerHand)
+    if scoring(playerHand) >= 21:
+        break
+    elif scoring(compHand) >= 21:
+        break
