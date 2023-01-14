@@ -65,8 +65,8 @@ while playerIn or compIn:
     """
     Display of cards and scores for player and computer with option to add card or stand
     """
-    print(f"Delar had {reportDelaerCards()} and {scoring(compHand)}")
-    print(f"User have {playerHand} for total of {scoring(playerHand)}")
+    print(f"Delar had {compHand} for total of {scoring(compHand)} points.")
+    print(f"User have {playerHand} for total of {scoring(playerHand)} points.")
     if playerIn:
         standOrHit = input("1: Stand\n2: Hit\n")
     if scoring(compHand) > 16:
@@ -81,3 +81,30 @@ while playerIn or compIn:
         break
     elif scoring(compHand) >= 21:
         break
+
+
+"""
+    Determination of win or loss for the players
+"""
+if scoring(playerHand) == 21:
+    print("Black Jack !! You win :)")
+    print(f"You win {playerHand} your opponent has {compHand}")
+    print(f"You win, you had {scoring(playerHand)} points and your opponent only {scoring(compHand)} points")
+elif scoring(compHand) == 21:
+    print("Black Jack !! Dealer Wins :(")
+    print(f"Unfortunately you lose your opponent has {compHand}  and you only {playerHand}")
+elif scoring(playerHand) > 21:
+    print("You give up ! Your opponent win :( ")
+    print(f"Unfortunately you lose your opponent has {compHand}  and you only {playerHand}")
+elif scoring(compHand) > 21:
+    print(" You win !!! :)")
+    print(f"You win {playerHand}  your opponent has {compHand}")
+    print(f"You win, you had {scoring(playerHand)} points and your opponent only {scoring(compHand)}")
+elif 21 - scoring(compHand) < 21 - scoring(playerHand):
+    print("Dealer Wins!")
+    print(f"Unfortunately you lose your opponent has {compHand} points and you only {playerHand}")
+elif 21 - scoring(compHand) > 21 - scoring(playerHand):
+    print("You win")
+    print(f"You win, you had {playerHand}  and your opponent only {compHand}")
+    print(f"You win, you had {scoring(playerHand)} points and your opponent only {scoring(compHand)}")
+
