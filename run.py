@@ -18,7 +18,7 @@ compIn = True
 
 def welcome(): 
     """
-
+    User welcome screen with menu
     """
     result = pyfiglet.figlet_format("Black Jack", "bubble") 
     print(result)  
