@@ -1,5 +1,6 @@
 import random
 import pyfiglet
+import os
 
 """
     Cards for players
