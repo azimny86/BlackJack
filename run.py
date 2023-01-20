@@ -49,6 +49,10 @@ def welcome():
             return welcome() 
 
 
+def clear():
+    os.system("clear")
+
+
 def startGame(turn):
     """
     Random deal cards and remove cards from the deck
