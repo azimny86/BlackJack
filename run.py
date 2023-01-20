@@ -17,36 +17,69 @@ playerIn = True
 compIn = True
 
 
-def welcome(): 
+def welcome():
     """
     User welcome screen with menu
     """
-    result = pyfiglet.figlet_format("Black Jack", "bubble") 
-    print(result)  
+    result = pyfiglet.figlet_format("Black Jack", "bubble")
+    print(result)
     print("Welcome to Black Jack, a non-gambling game that utilizes the strategy elements of poker.\n") 
-    print("Choose one of the options:") 
-    print("Press " + "1" + " to start game.") 
-    print("Press " + "2" + " Check the rules of the game.") 
-    print("Press" + " Q " + "to get out of the game.") 
-    option = False 
-    while not option: 
-        settings = input("\n") 
-        if settings == "1": 
-            option = True 
-            clear() 
-            game(turn) 
-        elif settings == "2": 
-            option = True 
-            clear() 
-            rules() 
+    print("Choose one of the options:")
+    print("Press " + "1" + " to start game.")
+    print("Press " + "2" + " Check the rules of the game.")
+    print("Press" + " Q " + "to get out of the game.")
+    option = False
+    while not option:
+        settings = input("\n")
+        if settings == "1":
+            option = True
+            clear()
+        elif settings == "2":
+            option = True
+            clear()
+            rules()
         elif settings == "q": 
-            print("Goodbye, see you soon ;)") 
-            exit() 
-        else: 
-            print("\n") 
-            print("Incorrect selected option") 
-            print("Please select one of the options provided\n") 
-            return welcome() 
+            print("Goodbye, see you soon ;)")
+            exit()
+        else:
+            print("\n")
+            print("Incorrect selected option")
+            print("Please select one of the options provided\n")
+            return welcome()
+
+
+def rules():
+    result = pyfiglet.figlet_format("R u l e s", "alligator")
+    print(result)
+    print(
+        "The object of Black Jack is to get 21 points before your hand loses.",
+        "\n The number of cards dealt to each player is chosen at random,",
+        " and the player with the lowest hand is the dealer.\nIf you want ",
+        "to learn more about Black Jack, there are many different advanced",
+        " rules you can use on each game.\nThese rules include how many decks ",
+        "need to be shuffled or lined up for a particular hand, what cards you",
+        " hold or blackjack rules for double down after splitting aces.\n",
+        "The rules of Black Jack are simple. ",
+        "The dealer will deal two cards to each player,",
+        " and then another card face up in the center of the table.",
+        " Once all players have received their first two cards,",
+        " they may choose to split or double down on those hands.\nAfter this",
+        ", additional cards are dealt to players who have not yet received ",
+        "their second card face up in front of them.The object in Black Jack",
+        " is to get 21 points before your hand loses.\nThe number of cards",
+        " dealt to each player is chosen at random and the player with the",
+        " lowest hand is the dealer.\n")
+    print("Press " + "E" + " to go back to the start menu")
+    opt = False
+    while not opt:
+        settings = input("\n").lower().upper()
+        if settings == "e":
+            opt = True
+            clear()
+            return welcome()
+        else:
+            print("\n")
+            print('If you want to leave the rules you have to press "E"')
 
 
 def clear():
