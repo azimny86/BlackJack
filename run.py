@@ -154,27 +154,33 @@ while playerIn or compIn:
         break
 
 
-"""
+def checkScore(compHand, playerHand):
+    """
     Determination of win or loss for the players
-"""
-if scoring(playerHand) == 21:
-    print("Black Jack !! You win :)")
-    print(f"You win {playerHand} your opponent has {compHand}")
-    print(f"You win, you had {scoring(playerHand)} points and your opponent only {scoring(compHand)} points")
-elif scoring(compHand) == 21:
-    print("Black Jack !! Dealer Wins :(")
-    print(f"Unfortunately you lose your opponent has {compHand}  and you only {playerHand}")
-elif scoring(playerHand) > 21:
-    print("You give up ! Your opponent win :( ")
-    print(f"Unfortunately you lose your opponent has {compHand}  and you only {playerHand}")
-elif scoring(compHand) > 21:
-    print(" You win !!! :)")
-    print(f"You win {playerHand}  your opponent has {compHand}")
-    print(f"You win, you had {scoring(playerHand)} points and your opponent only {scoring(compHand)}")
-elif 21 - scoring(compHand) < 21 - scoring(playerHand):
-    print("Dealer Wins!")
-    print(f"Unfortunately you lose your opponent has {compHand} points and you only {playerHand}")
-elif 21 - scoring(compHand) > 21 - scoring(playerHand):
-    print("You win")
-    print(f"You win, you had {playerHand}  and your opponent only {compHand}")
-    print(f"You win, you had {scoring(playerHand)} points and your opponent only {scoring(compHand)}")
+    """
+    if scoring(playerHand) == 21:
+        print("Black Jack !! You win :)")
+        print(f"You win {playerHand} your opponent has {str(compHand)}")
+        print(f"You win, you had {scoring(playerHand)} points and your opponent only {scoring(compHand)} points")
+    elif scoring(compHand) == 21:
+        print("Black Jack !! Dealer Wins :(")
+        print(f"Unfortunately you lose your opponent has {str(compHand)}  and you only {playerHand}")
+        print(f"You lost, you had {scoring(playerHand)} points and your opponent have {scoring(compHand)} points")
+    elif scoring(playerHand) > 21:
+        print("You give up ! Your opponent win :( ")
+        print(f"Unfortunately you lose your opponent has {str(compHand)}  and you only {playerHand}")
+        print(f"You lost, you had {scoring(playerHand)} points and your opponent have {scoring(compHand)} points")
+    elif scoring(compHand) > 21:
+        print(" You win !!! :)")
+        print(f"You win {playerHand}  your opponent has {str(compHand)}")
+        print(f"You win, you had {scoring(playerHand)} points and your opponent only {scoring(compHand)}")
+    elif 21 - scoring(compHand) < 21 - scoring(playerHand):
+        print("Dealer Wins!")
+        print(f"Unfortunately you lose your opponent has {str(compHand)} points and you only {playerHand}")
+        print(f"You lost, you had {scoring(playerHand)} points and your opponent have {scoring(compHand)} points")
+    elif 21 - scoring(compHand) > 21 - scoring(playerHand):
+        print("You win")
+        print(f"You win, you had {playerHand}  and your opponent only {str((compHand))}")
+        print(f"You win, you had {scoring(playerHand)} points and your opponent {scoring(compHand)}")
+    elif scoring(playerHand) == scoring(compHand):
+        print("Draw")
