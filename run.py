@@ -45,6 +45,9 @@ def welcome():
 
 
 def rules():
+    """
+    Display rules about Black Jack for player before game
+    """
     result = pyfiglet.figlet_format("R u l e s", "alligator")
     print(result)
     print(
@@ -79,6 +82,9 @@ def rules():
 
 
 def clear():
+    """
+    Clear screen during game
+    """
     os.system("clear")
 
 
