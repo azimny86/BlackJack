@@ -7,8 +7,7 @@ cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]*4
 
 compHand = []
 playerHand = []
-playerIn = True
-compIn = True
+turn = []
 
 
 def welcome():
@@ -30,6 +29,7 @@ def welcome():
         if settings == "1":
             option = True
             clear()
+            game(turn)
         elif settings == "2":
             option = True
             clear()
