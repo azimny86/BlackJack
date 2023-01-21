@@ -139,36 +139,6 @@ def reportDelaerCards():
         return compHand[0], compHand[1]
 
 
-for _ in range(2):
-    startGame(compHand)
-    startGame(playerHand)
-
-print(compHand)
-print(playerHand)
-
-
-while playerIn or compIn:
-    """
-    Display of cards and scores for player and computer with option to add card or stand
-    """
-    print(f"Delar had {compHand} for total of {scoring(compHand)} points.")
-    print(f"User have {playerHand} for total of {scoring(playerHand)} points.")
-    if playerIn:
-        standOrHit = input("1: Stand\n2: Hit\n")
-    if scoring(compHand) > 16:
-        compIn = False
-    else:
-        startGame(compHand)
-    if standOrHit == '1':
-        playerIn = False
-    else:
-        startGame(playerHand)
-    if scoring(playerHand) >= 21:
-        break
-    elif scoring(compHand) >= 21:
-        break
-
-
 def checkScore(compHand, playerHand):
     """
     Determination of win or loss for the players
@@ -201,3 +171,48 @@ def checkScore(compHand, playerHand):
         print("Draw")
 
 
+def game(turn):
+    """
+    Running the game
+    """
+    options = 0
+    compHand = deal(cards)
+    playerHand = deal(cards)
+    playerIn = True
+    compIn = True
+    print(f"Delar had {compHand} for total of {scoring(compHand)} points.")
+    print(f"User have {playerHand} for total of {scoring(playerHand)} points.")
+    scoring(compHand)
+    scoring(playerHand)
+    while playerIn or compIn:
+        options = input("\n1: Stand\n2: Hit\nR: Restart\nQ: Quit\n").lower()
+        if options == "1":
+            playerIn = False
+            
+            checkScore(compHand, playerHand)
+            if scoring(compHand) > 16:
+                compIn = False
+            else:
+                game(playerHand)
+            if scoring(playerHand) >= 21:
+                break
+            if scoring(compHand) >= 21:
+                break
+        if options == "2":
+            
+            checkScore(compHand, playerHand)
+            if scoring(compHand) > 16:
+                compIn = False
+            else: 
+                game(playerHand)
+            if scoring(playerHand) >= 21:
+                break
+            if scoring(compHand) >= 21:
+                break
+        elif options == 'r':
+            restart()
+        elif options == 'q':
+            print("Goodbye, see you soon ;)")
+            exit()
+            break
+        
