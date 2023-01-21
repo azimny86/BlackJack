@@ -95,6 +95,18 @@ def startGame(turn):
     cards.remove(card)
 
 
+def restart():
+    """
+    Restarting Game
+    """
+    info = input("\nDo you want restart game ?\nY: Yes\nQ: Quit\n").lower()
+    if info == "y":
+        clear()
+    else:
+        print("Goodbye, see you soon ;)")
+        exit()
+
+
 def scoring(turn):
     """
     Counting the score of the cards in the player's hand
@@ -184,3 +196,5 @@ def checkScore(compHand, playerHand):
         print(f"You win, you had {scoring(playerHand)} points and your opponent {scoring(compHand)}")
     elif scoring(playerHand) == scoring(compHand):
         print("Draw")
+
+
