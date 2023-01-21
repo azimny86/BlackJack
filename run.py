@@ -246,3 +246,10 @@ def game(turn):
             break
         elif valdateInput(options):
             break
+
+
+def main():
+    welcome()
+
+
+main()
