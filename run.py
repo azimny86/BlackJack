@@ -2,14 +2,9 @@ import random
 import pyfiglet
 import os
 
-"""
-    Cards for players
-"""
+
 cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]*4
 
-"""
-    Player and computer variables
-"""
 compHand = []
 playerHand = []
 playerIn = True
@@ -22,7 +17,9 @@ def welcome():
     """
     result = pyfiglet.figlet_format("Black Jack", "bubble")
     print(result)
-    print("Welcome to Black Jack, a non-gambling game that utilizes the strategy elements of poker.\n") 
+    print(
+        "Welcome to Black Jack, a non-gambling game that utilizes the",
+        " strategy elements of poker.\n")
     print("Choose one of the options:")
     print("Press " + "1" + " to start game.")
     print("Press " + "2" + " Check the rules of the game.")
@@ -37,7 +34,7 @@ def welcome():
             option = True
             clear()
             rules()
-        elif settings == "q": 
+        elif settings == "q":
             print("Goodbye, see you soon ;)")
             exit()
         else:
@@ -55,9 +52,9 @@ def rules():
         "\n The number of cards dealt to each player is chosen at random,",
         " and the player with the lowest hand is the dealer.\nIf you want ",
         "to learn more about Black Jack, there are many different advanced",
-        " rules you can use on each game.\nThese rules include how many decks ",
-        "need to be shuffled or lined up for a particular hand, what cards you",
-        " hold or blackjack rules for double down after splitting aces.\n",
+        " rules you can use on each game.\nThese rules include how many decks",
+        " need to be shuffled or lined up for a particular hand, what cards",
+        " you hold or blackjack rules for double down after splitting aces.\n",
         "The rules of Black Jack are simple. ",
         "The dealer will deal two cards to each player,",
         " and then another card face up in the center of the table.",
@@ -101,7 +98,8 @@ def restart():
     """
     Restarting Game
     """
-    info = input("\nDo you want restart game ?\nY: Yes\nQ: Press any key\n").lower()
+    info = input(
+        "\nDo you want restart game ?\nY: Yes\nQ: Press any key\n").lower()
     if info == "y":
         clear()
     else:
@@ -154,32 +152,52 @@ def checkScore(compHand, playerHand):
     if scoring(playerHand) == 21:
         print("Black Jack !! You win :)")
         print(f"You win {playerHand} your opponent has {str(compHand)}")
-        print(f"You win, you had {scoring(playerHand)} points and your opponent only {scoring(compHand)} points")
+        print(
+            f"You win, you had {scoring(playerHand)} points and"
+            f" your opponent only {scoring(compHand)} points")
         restart()
     elif scoring(compHand) == 21:
         print("Black Jack !! Dealer Wins :(")
-        print(f"Unfortunately you lose your opponent has {str(compHand)}  and you only {playerHand}")
-        print(f"You lost, you had {scoring(playerHand)} points and your opponent have {scoring(compHand)} points")
+        print(
+            f"Unfortunately you lose your opponent has {str(compHand)} "
+            f"and you only {playerHand}")
+        print(
+            f"You lost, you had {scoring(playerHand)} points and your opponent"
+            f" have {scoring(compHand)} points")
         restart()
     elif scoring(playerHand) > 21:
         print("You give up ! Your opponent win :( ")
-        print(f"Unfortunately you lose your opponent has {str(compHand)}  and you only {playerHand}")
-        print(f"You lost, you had {scoring(playerHand)} points and your opponent have {scoring(compHand)} points")
+        print(
+            f"Unfortunately you lose your opponent has {str(compHand)}"
+            f" and you only {playerHand}")
+        print(
+            f"You lost, you had {scoring(playerHand)} points and your"
+            f" opponent have {scoring(compHand)} points")
         restart()
     elif scoring(compHand) > 21:
         print(" You win !!! :)")
         print(f"You win {playerHand}  your opponent has {str(compHand)}")
-        print(f"You win, you had {scoring(playerHand)} points and your opponent only {scoring(compHand)}")
+        print(
+            f"You win, you had {scoring(playerHand)} points and your "
+            f"opponent only {scoring(compHand)}")
         restart()
     elif 21 - scoring(compHand) < 21 - scoring(playerHand):
         print("Dealer Wins!")
-        print(f"Unfortunately you lose your opponent has {str(compHand)} points and you only {playerHand}")
-        print(f"You lost, you had {scoring(playerHand)} points and your opponent have {scoring(compHand)} points")
+        print(
+            f"Unfortunately you lose your opponent has {str(compHand)} "
+            f"points and you only {playerHand}")
+        print(
+            f"You lost, you had {scoring(playerHand)} points and your opponent"
+            f" have {scoring(compHand)} points")
         restart()
     elif 21 - scoring(compHand) > 21 - scoring(playerHand):
         print("You win")
-        print(f"You win, you had {playerHand}  and your opponent only {str((compHand))}")
-        print(f"You win, you had {scoring(playerHand)} points and your opponent {scoring(compHand)}")
+        print(
+            f"You win, you had {playerHand}  and your "
+            f"opponent only {str((compHand))}")
+        print(
+            f"You win, you had {scoring(playerHand)} points and your"
+            f" opponent {scoring(compHand)}")
     elif scoring(playerHand) == scoring(compHand):
         print("Draw")
         restart()
