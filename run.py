@@ -180,6 +180,21 @@ def checkScore(compHand, playerHand):
         print("Draw")
 
 
+def valdateInput(options):
+    """
+    Valideta input form game options
+    """
+    try:
+        if options != "1" or "2" or "r" or "q":
+            raise ValueError(
+                "None of the options have been selected"
+                )
+    except ValueError as err:
+        print(f"Invalid option use: {err}, please try again.\n")
+        return False
+    return True
+
+
 def game(turn):
     """
     Running the game
