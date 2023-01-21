@@ -86,20 +86,23 @@ def clear():
     os.system("clear")
 
 
-def startGame(turn):
+def deal(cards):
     """
-    Random deal cards and remove cards from the deck
+    Random deal of cards
     """
-    card = random.choice(cards)
-    turn.append(card)
-    cards.remove(card)
+    hand = []
+    for _ in range(2):
+        random.shuffle(cards)
+        card = cards.pop()
+        hand.append(card)
+    return hand
 
 
 def restart():
     """
     Restarting Game
     """
-    info = input("\nDo you want restart game ?\nY: Yes\nQ: Quit\n").lower()
+    info = input("\nDo you want restart game ?\nY: Yes\nQ: Press any key\n").lower()
     if info == "y":
         clear()
     else:
