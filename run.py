@@ -256,7 +256,7 @@ def game(turn):
             checkScore(compHand, playerHand)
             if scoring(compHand) > 16:
                 compIn = False
-            else: 
+            else:
                 game(playerHand)
             if scoring(playerHand) >= 21:
                 break
