@@ -139,6 +139,15 @@ def reportDelaerCards():
         return compHand[0], compHand[1]
 
 
+def hit(hand):
+    """
+    Handle hit option from the game
+    """
+    card = cards.pop()
+    hand.append(card)
+    return hand
+
+
 def checkScore(compHand, playerHand):
     """
     Determination of win or loss for the players
@@ -188,7 +197,7 @@ def game(turn):
         options = input("\n1: Stand\n2: Hit\nR: Restart\nQ: Quit\n").lower()
         if options == "1":
             playerIn = False
-            
+            hit(compHand)
             checkScore(compHand, playerHand)
             if scoring(compHand) > 16:
                 compIn = False
@@ -199,7 +208,7 @@ def game(turn):
             if scoring(compHand) >= 21:
                 break
         if options == "2":
-            
+            hit(playerHand)
             checkScore(compHand, playerHand)
             if scoring(compHand) > 16:
                 compIn = False
@@ -215,4 +224,5 @@ def game(turn):
             print("Goodbye, see you soon ;)")
             exit()
             break
-        
+        elif valdateInput(options):
+            break
