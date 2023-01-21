@@ -71,7 +71,7 @@ def rules():
     print("Press " + "E" + " to go back to the start menu")
     opt = False
     while not opt:
-        settings = input("\n").lower().upper()
+        settings = input("\n").lower()
         if settings == "e":
             opt = True
             clear()
